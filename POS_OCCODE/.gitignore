@@ -1,0 +1,84 @@
+﻿
+# ==========================================
+# VISUAL STUDIO
+# ==========================================
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+*.userprefs
+
+# ==========================================
+# COMPILACION .NET / ASP.NET CORE
+# ==========================================
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+artifacts/
+publish/
+[Ll]og/
+[Ll]ogs/
+
+# ==========================================
+# ARCHIVOS TEMPORALES
+# ==========================================
+*.tmp
+*.temp
+*.bak
+*.old
+*.cache
+*.log
+*~
+~$*
+
+# ==========================================
+# PRUEBAS Y COBERTURA
+# ==========================================
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.trx
+*.coverage
+*.coveragexml
+coverage/
+BenchmarkDotNet.Artifacts/
+
+# ==========================================
+# CONFIGURACIONES LOCALES Y SECRETOS
+# ==========================================
+.env
+.env.*
+!.env.example
+secrets.json
+*.pfx
+*.publishsettings
+*.pubxml.user
+
+# ==========================================
+# BASES DE DATOS LOCALES
+# ==========================================
+*.mdf
+*.ldf
+*.ndf
+
+# ==========================================
+# NODE.JS (SI UTILIZAS NPM)
+# ==========================================
+node_modules/
+
+# ==========================================
+# HERRAMIENTAS Y EDITORES
+# ==========================================
+.idea/
+.vscode/
+_ReSharper*/
+*.DotSettings.user
+
+# ==========================================
+# SISTEMA OPERATIVO
+# ==========================================
+.DS_Store
+Thumbs.db
+desktop.ini
