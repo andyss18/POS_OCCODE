@@ -1,0 +1,170 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - POS_OCCODE</title>
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/POS_OCCODE.styles.css" asp-append-version="true" />
+
+    <style>
+        :root {
+            --color-purple-dark: #5F2A62;
+            --color-purple-light: #A976C3;
+            --color-green-light: #A0DE59;
+            --color-green-dark: #466B5A;
+            --color-yellow: #F5C024;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        .custom-navbar {
+            background-color: #ffffff;
+            border-bottom: 3px solid var(--color-purple-light);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .navbar-brand {
+            color: var(--color-purple-dark) !important;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link, .dropdown-item {
+            color: var(--color-green-dark) !important;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+            .nav-link:hover, .dropdown-item:hover {
+                color: var(--color-purple-light) !important;
+                background-color: transparent;
+            }
+
+        .navbar-toggler {
+            border-color: var(--color-purple-light);
+        }
+
+        .dropdown-menu {
+            border-color: var(--color-purple-light);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .custom-footer {
+            background-color: #ffffff;
+            border-top: 1px solid #eaeaea;
+            color: var(--color-green-dark);
+        }
+
+        .custom-footer a {
+            color: var(--color-purple-dark);
+            text-decoration: none;
+        }
+
+        .custom-footer a:hover {
+            color: var(--color-yellow);
+        }
+
+        /* Imagen principal de SweetAlert */
+        .mi-alerta {
+            background: #403b49 url('/sweetalertFondo.png') center center / cover no-repeat !important;
+            border-radius: 12px;
+        }
+
+            /* Textos y botones */
+            .mi-alerta .swal2-title {
+                color: #a0de59 !important;
+            }
+
+        /* Fondo oscuro */
+        .mi-backdrop {
+            background: rgba(0, 0, 123, 0.4) !important;
+            position: fixed;
+        }
+
+            /* GIF pequeño en la parte inferior */
+            .mi-backdrop::after {
+                content: "";
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 90px;
+                height: 90px;
+                background-image: url('/sweetalertBg.gif');
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                pointer-events: none;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm custom-navbar mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="/logo_occode.jpg" alt="Logo POS" width="50" height="50" class="d-inline-block align-text-top me-2 rounded-circle mx-3 shadow">
+                    PUNTO DE VENTA - OCCODEV
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Gestión
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Productos" asp-action="Index">Productos</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-area="" asp-controller="Ventas" asp-action="Index">Ventas</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer custom-footer text-center py-3">
+        <div class="container">
+            &copy; 2026 - POS_OCCODE - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- sweet alert -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

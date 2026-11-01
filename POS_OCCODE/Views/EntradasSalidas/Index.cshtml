@@ -1,0 +1,118 @@
+﻿@model IEnumerable<POS_OCCODE.Models.EntradasSalidasEncabezado>
+
+@{
+    ViewData["Title"] = "Historial de Entradas y Salidas";
+}
+
+<style>
+    .es-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        padding: 2rem;
+        border: 1px solid #eaeaea;
+    }
+
+    .table-custom-header {
+        background-color: var(--color-purple-dark, #5F2A62);
+        color: #ffffff;
+    }
+
+    .btn-nuevo {
+        background-color: var(--color-green-light, #A0DE59);
+        color: #1a3800;
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+        .btn-nuevo:hover {
+            background-color: var(--color-yellow, #F5C024);
+            color: #1a3800;
+            transform: translateY(-2px);
+        }
+
+    .badge-entrada {
+        background-color: var(--color-green-dark, #466B5A);
+        color: white;
+    }
+
+    .badge-salida {
+        background-color: var(--color-purple-light, #A976C3);
+        color: white;
+    }
+</style>
+
+<div class="container mt-4 mb-5">
+    <div class="es-card">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0" style="color: var(--color-purple-dark); font-weight: 700;">Entradas y Salidas</h2>
+            <a asp-action="Create" class="btn btn-nuevo px-4 py-2">
+                + Nueva Transacción
+            </a>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-custom-header">
+                    <tr>
+                        <th class="py-3 px-3 rounded-start">ID</th>
+                        <th class="py-3 px-3">Fecha</th>
+                        <th class="py-3 px-3">Tipo</th>
+                        <th class="py-3 px-3">Involucrado</th>
+                        <th class="py-3 px-3">Motivo</th>
+                        <th class="py-3 px-3 rounded-end">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="px-3 fw-bold">@item.IdEntradaSalida</td>
+                                <td class="px-3">@item.Fecha.ToString("dd/MM/yyyy")</td>
+                                <td class="px-3">
+                                    <span class="badge @(item.TipoEntradaSalida == "Entrada" ? "badge-entrada" : "badge-salida")">
+                                        @item.TipoEntradaSalida
+                                    </span>
+                                </td>
+                                <td class="px-3">
+                                    @(item.IdProveedorNavigation?.NombreProveedor ?? item.IdclienteNavigation?.Nombre ?? "N/A")
+                                </td>
+                                <td class="px-3">@(item.Motivo ?? "N/A")</td>
+                                <td class="px-3">
+                                    <a asp-action="Details" asp-route-id="@item.IdEntradaSalida" class="btn btn-sm" style="border-color: var(--color-purple-light); color: var(--color-purple-dark);">
+                                        Ver Detalle
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center py-4 text-muted">No hay movimientos registrados.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        @if (TempData["MensajeExito"] != null)
+        {
+                <text>
+                Swal.fire({
+                    title: '@TempData["MensajeExito"]', icon: 'success', timer: 2500, timerProgressBar: true,
+                    showConfirmButton: false, width: 500, padding: "2em", color: "#716add",
+                    customClass: { popup: 'mi-alerta', container: 'mi-backdrop' }, backdrop: true
+                });
+                </text>
+        }
+    </script>
+}

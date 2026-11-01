@@ -1,0 +1,479 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\views\\entradassalidas\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:views\\entradassalidas\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\controllers\\entradassalidascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:controllers\\entradassalidascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\views\\entradassalidas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:views\\entradassalidas\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\views\\entradassalidas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:views\\entradassalidas\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\models\\entradassalidasdetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:models\\entradassalidasdetalle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\models\\entradassalidasencabezado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:models\\entradassalidasencabezado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\models\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:models\\clientes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\views\\existencias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:views\\existencias\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\controllers\\existenciascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:controllers\\existenciascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\views\\proveedores\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:views\\proveedores\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\models\\existenciasbodega.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:models\\existenciasbodega.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\controllers\\proveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:controllers\\proveedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\views\\vendedores\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:views\\vendedores\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\controllers\\vendedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:controllers\\vendedorescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\models\\proveedore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:models\\proveedore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\models\\vendedore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:models\\vendedore.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\views\\sucursales\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:views\\sucursales\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\controllers\\sucursalescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:controllers\\sucursalescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\controllers\\cientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:controllers\\cientescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\models\\sucursale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:models\\sucursale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\views\\clientes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:views\\clientes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:views\\productos\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:models\\producto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|c:\\users\\usuario\\source\\repos\\pos_occode\\controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B5EBA40B-4F30-465F-9EF3-0A8D1DCAC588}|POS_OCCODE.csproj|solutionrelative:controllers\\productoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\EntradasSalidas\\Details.cshtml",
+              "RelativeDocumentMoniker": "Views\\EntradasSalidas\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\EntradasSalidas\\Details.cshtml",
+              "RelativeToolTip": "Views\\EntradasSalidas\\Details.cshtml",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAiwGEAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-01T18:22:57.759Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\EntradasSalidas\\Create.cshtml",
+              "RelativeDocumentMoniker": "Views\\EntradasSalidas\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\EntradasSalidas\\Create.cshtml",
+              "RelativeToolTip": "Views\\EntradasSalidas\\Create.cshtml",
+              "ViewState": "AgIAALsAAAAAAAAAAAAmwM4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-01T18:19:47.299Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\EntradasSalidas\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\EntradasSalidas\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\EntradasSalidas\\Index.cshtml",
+              "RelativeToolTip": "Views\\EntradasSalidas\\Index.cshtml",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAWwFcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-01T18:17:04.276Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EntradasSalidasController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\EntradasSalidasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EntradasSalidasController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\EntradasSalidasController.cs",
+              "RelativeToolTip": "Controllers\\EntradasSalidasController.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAcwDAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T18:16:04.016Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EntradasSalidasDetalle.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\EntradasSalidasDetalle.cs",
+              "RelativeDocumentMoniker": "Models\\EntradasSalidasDetalle.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\EntradasSalidasDetalle.cs",
+              "RelativeToolTip": "Models\\EntradasSalidasDetalle.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAUwBMAAABUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T18:05:25.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "EntradasSalidasEncabezado.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\EntradasSalidasEncabezado.cs",
+              "RelativeDocumentMoniker": "Models\\EntradasSalidasEncabezado.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\EntradasSalidasEncabezado.cs",
+              "RelativeToolTip": "Models\\EntradasSalidasEncabezado.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAUwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T18:05:17.963Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAA5wCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T17:56:20.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAL0AAAAAAAAAAAAAwMoAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-01T17:54:36.118Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Existencias\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Existencias\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Existencias\\Index.cshtml",
+              "RelativeToolTip": "Views\\Existencias\\Index.cshtml",
+              "ViewState": "AgIAABQBAAAAAAAAAAAmwCcBAABOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-01T17:52:42.956Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Proveedores\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Proveedores\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Proveedores\\Index.cshtml",
+              "RelativeToolTip": "Views\\Proveedores\\Index.cshtml",
+              "ViewState": "AgIAAAEBAAAAAAAAAAAAwBQBAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-01T17:51:58.975Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ExistenciasBodega.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\ExistenciasBodega.cs",
+              "RelativeDocumentMoniker": "Models\\ExistenciasBodega.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\ExistenciasBodega.cs",
+              "RelativeToolTip": "Models\\ExistenciasBodega.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T17:51:39.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ProveedoresController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\ProveedoresController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProveedoresController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\ProveedoresController.cs",
+              "RelativeToolTip": "Controllers\\ProveedoresController.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAIwEwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T17:51:26.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Vendedores\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Vendedores\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Vendedores\\Index.cshtml",
+              "RelativeToolTip": "Views\\Vendedores\\Index.cshtml",
+              "ViewState": "AgIAAOIAAAAAAAAAAAAIwAABAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-01T17:51:17.904Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "VendedoresController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\VendedoresController.cs",
+              "RelativeDocumentMoniker": "Controllers\\VendedoresController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\VendedoresController.cs",
+              "RelativeToolTip": "Controllers\\VendedoresController.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAowEAAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T17:50:14.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Proveedore.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\Proveedore.cs",
+              "RelativeDocumentMoniker": "Models\\Proveedore.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\Proveedore.cs",
+              "RelativeToolTip": "Models\\Proveedore.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAswA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T17:50:00.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Clientes.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\Clientes.cs",
+              "RelativeDocumentMoniker": "Models\\Clientes.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\Clientes.cs",
+              "RelativeToolTip": "Models\\Clientes.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAswBAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T17:40:50.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ExistenciasController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\ExistenciasController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ExistenciasController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\ExistenciasController.cs",
+              "RelativeToolTip": "Controllers\\ExistenciasController.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAIwGIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T17:52:29.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Vendedore.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\Vendedore.cs",
+              "RelativeDocumentMoniker": "Models\\Vendedore.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\Vendedore.cs",
+              "RelativeToolTip": "Models\\Vendedore.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T17:49:44.99Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Sucursales\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Sucursales\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Sucursales\\Index.cshtml",
+              "RelativeToolTip": "Views\\Sucursales\\Index.cshtml",
+              "ViewState": "AgIAAPUAAAAAAAAAAAAIwBMBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-01T17:49:39.313Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "SucursalesController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\SucursalesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\SucursalesController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\SucursalesController.cs",
+              "RelativeToolTip": "Controllers\\SucursalesController.cs",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAIwEwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T17:49:04.747Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Sucursale.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\Sucursale.cs",
+              "RelativeDocumentMoniker": "Models\\Sucursale.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\Sucursale.cs",
+              "RelativeToolTip": "Models\\Sucursale.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAgwBgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T17:47:31.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "CientesController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\CientesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CientesController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\CientesController.cs",
+              "RelativeToolTip": "Controllers\\CientesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T17:42:46.163Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Clientes\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Clientes\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Clientes\\Index.cshtml",
+              "RelativeToolTip": "Views\\Clientes\\Index.cshtml",
+              "ViewState": "AgIAANUAAAAAAAAAAAAIwOAAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-01T17:40:45.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABgAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-01T17:21:26.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Producto.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\Producto.cs",
+              "RelativeDocumentMoniker": "Models\\Producto.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Models\\Producto.cs",
+              "RelativeToolTip": "Models\\Producto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T17:08:03.137Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "ProductosController.cs",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\ProductosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ProductosController.cs",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Controllers\\ProductosController.cs",
+              "RelativeToolTip": "Controllers\\ProductosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-01T17:07:32.492Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Productos\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Productos\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Usuario\\source\\repos\\POS_OCCODE\\Views\\Productos\\Index.cshtml",
+              "RelativeToolTip": "Views\\Productos\\Index.cshtml",
+              "ViewState": "AgIAANoAAAAAAAAAAAAiwNwAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-11-01T17:07:00.999Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

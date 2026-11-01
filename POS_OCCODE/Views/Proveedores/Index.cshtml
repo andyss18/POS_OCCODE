@@ -1,0 +1,282 @@
+﻿@model IEnumerable<POS_OCCODE.Models.Proveedore>
+
+@{
+    ViewData["Title"] = "Directorio de Proveedores";
+}
+
+<style>
+    .proveedor-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        padding: 2rem;
+        border: 1px solid #eaeaea;
+    }
+
+    .table-custom-header {
+        background-color: var(--color-purple-dark, #5F2A62);
+        color: #ffffff;
+    }
+
+    .btn-nuevo {
+        background-color: var(--color-green-light, #A0DE59);
+        color: #1a3800;
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+        .btn-nuevo:hover {
+            background-color: var(--color-yellow, #F5C024);
+            color: #1a3800;
+            transform: translateY(-2px);
+        }
+
+    .btn-action-edit {
+        color: var(--color-green-dark, #466B5A);
+        background: none;
+        border: none;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+        .btn-action-edit:hover {
+            color: var(--color-purple-light, #A976C3);
+        }
+
+    .btn-action-delete {
+        color: #dc3545;
+        background: none;
+        border: none;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+        .btn-action-delete:hover {
+            color: #a71d2a;
+        }
+
+    .modal-header-custom {
+        background-color: var(--color-purple-dark, #5F2A62);
+        color: white;
+    }
+
+        .modal-header-custom .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+</style>
+
+<div class="container mt-4 mb-5">
+    <div class="proveedor-card">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0" style="color: var(--color-purple-dark); font-weight: 700;">Directorio de Proveedores</h2>
+            <button type="button" class="btn btn-nuevo px-4 py-2" data-bs-toggle="modal" data-bs-target="#modalCrear">
+                + Nuevo Proveedor
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-custom-header">
+                    <tr>
+                        <th class="py-3 px-3 rounded-start">ID</th>
+                        <th class="py-3 px-3">Nombre Proveedor</th>
+                        <th class="py-3 px-3">NIT</th>
+                        <th class="py-3 px-3">Teléfono</th>
+                        <th class="py-3 px-3">Dirección</th>
+                        <th class="py-3 px-3 text-end rounded-end">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="px-3">@item.IdProveedor</td>
+                                <td class="px-3 fw-bold text-dark">@item.NombreProveedor</td>
+                                <td class="px-3">@(item.NitProveedor ?? "N/A")</td>
+                                <td class="px-3">@(item.Telefono ?? "N/A")</td>
+                                <td class="px-3">@(item.Direccion ?? "N/A")</td>
+                                <td class="px-3 text-end">
+                                    <button type="button" class="btn-action-edit me-3" data-bs-toggle="modal" data-bs-target="#modalEditar"
+                                            data-bs-id="@item.IdProveedor" data-bs-nombre="@item.NombreProveedor"
+                                            data-bs-nit="@item.NitProveedor" data-bs-telefono="@item.Telefono"
+                                            data-bs-direccion="@item.Direccion" data-bs-cp="@item.CodigoPostal">
+                                        ✏️ Editar
+                                    </button>
+                                    <button type="button" class="btn-action-delete" onclick="confirmarEliminacion(@item.IdProveedor, '@item.NombreProveedor')">
+                                        🗑️ Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center py-4 text-muted">No hay proveedores registrados.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<form id="form-eliminar" asp-action="Delete" method="post" style="display: none;">
+    <input type="hidden" name="idProveedor" id="delete-id" />
+</form>
+
+<!-- Modal CREAR -->
+<div class="modal fade" id="modalCrear" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content border-0">
+            <div class="modal-header modal-header-custom">
+                <h5 class="modal-title fw-bold">Registrar Nuevo Proveedor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="Create" method="post">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8 mb-3">
+                            <label class="form-label fw-bold">Nombre del Proveedor *</label>
+                            <input type="text" name="NombreProveedor" class="form-control" required maxlength="150" />
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-bold">NIT</label>
+                            <input type="text" name="NitProveedor" class="form-control" maxlength="20" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Teléfono</label>
+                            <input type="text" name="Telefono" class="form-control" maxlength="20" />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Código Postal</label>
+                            <input type="text" name="CodigoPostal" class="form-control" maxlength="10" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Dirección</label>
+                        <input type="text" name="Direccion" class="form-control" maxlength="255" />
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-nuevo px-4">Guardar Proveedor</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal EDITAR -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content border-0">
+            <div class="modal-header modal-header-custom" style="background-color: var(--color-green-dark);">
+                <h5 class="modal-title fw-bold">Editar Proveedor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="Edit" method="post">
+                <div class="modal-body">
+                    <input type="hidden" name="IdProveedor" id="edit-id" />
+                    <div class="row">
+                        <div class="col-md-8 mb-3">
+                            <label class="form-label fw-bold">Nombre del Proveedor *</label>
+                            <input type="text" name="NombreProveedor" id="edit-nombre" class="form-control" required maxlength="150" />
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-bold">NIT</label>
+                            <input type="text" name="NitProveedor" id="edit-nit" class="form-control" maxlength="20" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Teléfono</label>
+                            <input type="text" name="Telefono" id="edit-telefono" class="form-control" maxlength="20" />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Código Postal</label>
+                            <input type="text" name="CodigoPostal" id="edit-cp" class="form-control" maxlength="10" />
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Dirección</label>
+                        <input type="text" name="Direccion" id="edit-direccion" class="form-control" maxlength="255" />
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: var(--color-purple-light); border:none;">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        @if (TempData["MensajeExito"] != null)
+        {
+                <text>
+                Swal.fire({
+                    title: '@TempData["MensajeExito"]',
+                    icon: 'success',
+                    timer: 2500,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    width: 500,
+                    padding: "2em",
+                    color: "#716add",
+                    customClass: {
+                        popup: 'mi-alerta',
+                        container: 'mi-backdrop'
+                    },
+                    backdrop: true
+                });
+                </text>
+        }
+
+        var modalEditar = document.getElementById('modalEditar');
+        modalEditar.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+
+            modalEditar.querySelector('#edit-id').value = button.getAttribute('data-bs-id');
+            modalEditar.querySelector('#edit-nombre').value = button.getAttribute('data-bs-nombre');
+            modalEditar.querySelector('#edit-nit').value = button.getAttribute('data-bs-nit');
+            modalEditar.querySelector('#edit-telefono').value = button.getAttribute('data-bs-telefono');
+            modalEditar.querySelector('#edit-cp').value = button.getAttribute('data-bs-cp');
+            modalEditar.querySelector('#edit-direccion').value = button.getAttribute('data-bs-direccion');
+        });
+
+        function confirmarEliminacion(id, nombre) {
+            Swal.fire({
+                title: `¿Eliminar a ${nombre}?`,
+                text: "Esta acción no se puede deshacer.",
+                icon: "warning",
+                width: 500,
+                padding: "2em",
+                color: "#716add",
+                showCancelButton: true,
+                confirmButtonColor: "#dc3545",
+                cancelButtonColor: "#A976C3",
+                confirmButtonText: "Sí, eliminar",
+                cancelButtonText: "Cancelar",
+                customClass: {
+                    popup: 'mi-alerta',
+                    container: 'mi-backdrop'
+                },
+                backdrop: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-id').value = id;
+                    document.getElementById('form-eliminar').submit();
+                }
+            });
+        }
+    </script>
+}

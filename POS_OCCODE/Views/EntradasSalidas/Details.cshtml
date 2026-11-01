@@ -1,0 +1,98 @@
+﻿@model POS_OCCODE.Models.EntradasSalidasEncabezado
+
+@{
+    ViewData["Title"] = "Detalle de Transacción";
+}
+
+<style>
+    .detalle-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        padding: 2rem;
+        border: 1px solid #eaeaea;
+        margin-bottom: 2rem;
+    }
+
+    .section-title {
+        color: var(--color-purple-dark, #5F2A62);
+        font-weight: 700;
+        border-bottom: 2px solid var(--color-purple-light, #A976C3);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .badge-tipo {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="detalle-card">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="section-title mb-0 border-0">Transacción #@Model.IdEntradaSalida</h4>
+            <span class="badge badge-tipo @(Model.TipoEntradaSalida == "Entrada" ? "bg-success" : "bg-danger")">
+                @Model.TipoEntradaSalida
+            </span>
+        </div>
+
+        <div class="row mb-4 bg-light p-3 rounded">
+            <div class="col-md-3">
+                <p class="text-muted mb-1 small fw-bold">Fecha</p>
+                <p class="fs-5 text-dark fw-bold">@Model.Fecha.ToString("dd/MM/yyyy")</p>
+            </div>
+            <div class="col-md-4">
+                <p class="text-muted mb-1 small fw-bold">Involucrado (Prov/Cliente)</p>
+                <p class="fs-5 text-dark">
+                    @(Model.IdProveedorNavigation?.NombreProveedor ?? Model.IdclienteNavigation?.Nombre ?? "N/A")
+                </p>
+            </div>
+            <div class="col-md-5">
+                <p class="text-muted mb-1 small fw-bold">Motivo</p>
+                <p class="fs-5 text-dark">@(Model.Motivo ?? "Sin observaciones")</p>
+            </div>
+        </div>
+
+        <h5 class="fw-bold mb-3" style="color: var(--color-green-dark, #466B5A);">Productos en esta transacción</h5>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead style="background-color: var(--color-purple-light, #A976C3); color: white;">
+                    <tr>
+                        <th>Producto</th>
+                        <th>Sucursal</th>
+                        <th class="text-center">Cantidad</th>
+                        <th class="text-end">Precio Unitario</th>
+                        <th class="text-end">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var detalle in Model.EntradasSalidasDetalles)
+                    {
+                        <tr>
+                            <td class="fw-bold">@detalle.IdProductoNavigation.Nombre</td>
+                            <td>@detalle.IdSucursalNavigation.NombreSucursal</td>
+                            <td class="text-center">@detalle.Cantidad</td>
+                            <td class="text-end">@detalle.Precio.ToString("C")</td>
+                            <td class="text-end fw-bold text-dark">
+                                @((detalle.Cantidad * detalle.Precio).ToString("C"))
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot class="bg-light">
+                    <tr>
+                        <td colspan="4" class="text-end fw-bold fs-5">Total de la Transacción:</td>
+                        <td class="text-end fw-bold fs-5" style="color: var(--color-purple-dark);">
+                            @Model.EntradasSalidasDetalles.Sum(d => d.Cantidad * d.Precio).ToString("C")
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="text-end mt-4">
+            <a asp-action="Index" class="btn btn-secondary">Volver al Historial</a>
+        </div>
+    </div>
+</div>

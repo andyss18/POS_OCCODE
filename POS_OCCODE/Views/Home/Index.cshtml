@@ -1,0 +1,220 @@
+﻿@{
+    ViewData["Title"] = "Panel Principal - POS";
+}
+
+<style>
+    .pos-dashboard {
+        margin-top: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    /* Encabezado Principal */
+    .dashboard-header {
+        color: var(--color-purple-dark, #5F2A62);
+        font-weight: 800;
+        letter-spacing: -0.5px;
+        margin-bottom: 0.5rem;
+    }
+
+    .dashboard-subtitle {
+        color: var(--color-green-dark, #466B5A);
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+    }
+
+    /* Tarjetas del Dashboard */
+    .dashboard-card {
+        background-color: #ffffff;
+        border: 1px solid #eaeaea;
+        border-radius: 16px;
+        padding: 2.5rem 1rem;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        text-decoration: none;
+        display: block;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+        /* Efecto de línea superior dinámica */
+        .dashboard-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(95, 42, 98, 0.1);
+            border-color: transparent;
+        }
+
+    /* Colores personalizados al hacer hover según el módulo */
+    .card-venta:hover::before {
+        background-color: var(--color-green-light, #A0DE59);
+    }
+
+    .card-producto:hover::before {
+        background-color: var(--color-purple-light, #A976C3);
+    }
+
+    .card-cliente:hover::before {
+        background-color: var(--color-green-dark, #466B5A);
+    }
+
+    .card-existencia:hover::before {
+        background-color: var(--color-purple-light, #A976C3);
+    }
+
+    .card-proveedor:hover::before {
+        background-color: var(--color-purple-dark, #5F2A62);
+    }
+
+    .card-sucursal:hover::before {
+        background-color: var(--color-green-dark, #466B5A);
+    }
+
+    .card-vendedor:hover::before {
+        background-color: var(--color-green-light, #A0DE59);
+    }
+
+    .card-entradas:hover::before {
+        background-color: var(--color-yellow, #F5C024);
+    }
+
+    /* Contenedor del Icono */
+    .icon-wrapper {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background-color: #f8f9fa;
+        margin-bottom: 1.5rem;
+        transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .dashboard-card:hover .icon-wrapper {
+        transform: scale(1.15) rotate(5deg);
+        background-color: rgba(169, 118, 195, 0.1);
+    }
+
+    .card-icon {
+        font-size: 2.8rem;
+    }
+
+    .card-title {
+        color: var(--color-purple-dark, #5F2A62);
+        font-weight: 700;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-text {
+        color: #777;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+</style>
+
+<div class="pos-dashboard container">
+    <div class="text-center">
+        <h1 class="dashboard-header">Sistema de Gestión POS</h1>
+        <p class="dashboard-subtitle">Selecciona un módulo para comenzar a trabajar</p>
+    </div>
+
+    <!-- Cuadrícula de Módulos -->
+    <div class="row g-4">
+
+        <!-- OPERACIONES PRINCIPALES -->
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+            <a asp-controller="Ventas" asp-action="Index" class="dashboard-card card-venta">
+                <div class="icon-wrapper">
+                    <div class="card-icon">🛒</div>
+                </div>
+                <h3 class="card-title">Nueva Venta</h3>
+                <p class="card-text">Facturación y cobros</p>
+            </a>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+            <a asp-controller="Productos" asp-action="Index" class="dashboard-card card-producto">
+                <div class="icon-wrapper">
+                    <div class="card-icon">📦</div>
+                </div>
+                <h3 class="card-title">Productos</h3>
+                <p class="card-text">Catálogo y precios</p>
+            </a>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+            <a asp-controller="Clientes" asp-action="Index" class="dashboard-card card-cliente">
+                <div class="icon-wrapper">
+                    <div class="card-icon">👥</div>
+                </div>
+                <h3 class="card-title">Clientes</h3>
+                <p class="card-text">Directorio y datos</p>
+            </a>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+            <a asp-controller="Existencias" asp-action="Index" class="dashboard-card card-existencia">
+                <div class="icon-wrapper">
+                    <div class="card-icon">🏭</div>
+                </div>
+                <h3 class="card-title">Existencias</h3>
+                <p class="card-text">Control de bodegas</p>
+            </a>
+        </div>
+
+        <!-- ADMINISTRACIÓN Y CATÁLOGOS -->
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+            <a asp-controller="EntradasSalidas" asp-action="Index" class="dashboard-card card-entradas">
+                <div class="icon-wrapper">
+                    <div class="card-icon">🔄</div>
+                </div>
+                <h3 class="card-title">Movimientos</h3>
+                <p class="card-text">Entradas y Salidas</p>
+            </a>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+            <a asp-controller="Proveedores" asp-action="Index" class="dashboard-card card-proveedor">
+                <div class="icon-wrapper">
+                    <div class="card-icon">🤝</div>
+                </div>
+                <h3 class="card-title">Proveedores</h3>
+                <p class="card-text">Gestión de compras</p>
+            </a>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+            <a asp-controller="Sucursales" asp-action="Index" class="dashboard-card card-sucursal">
+                <div class="icon-wrapper">
+                    <div class="card-icon">🏢</div>
+                </div>
+                <h3 class="card-title">Sucursales</h3>
+                <p class="card-text">Puntos de venta</p>
+            </a>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+            <a asp-controller="Vendedores" asp-action="Index" class="dashboard-card card-vendedor">
+                <div class="icon-wrapper">
+                    <div class="card-icon">👔</div>
+                </div>
+                <h3 class="card-title">Vendedores</h3>
+                <p class="card-text">Personal de ventas</p>
+            </a>
+        </div>
+
+    </div>
+</div>

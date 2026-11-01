@@ -1,0 +1,307 @@
+﻿@model IEnumerable<POS_OCCODE.Models.ExistenciasBodega>
+
+@{
+    ViewData["Title"] = "Control de Existencias (Bodega)";
+}
+
+<style>
+    .existencia-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        padding: 2rem;
+        border: 1px solid #eaeaea;
+    }
+
+    .table-custom-header {
+        background-color: var(--color-purple-dark, #5F2A62);
+        color: #ffffff;
+    }
+
+    .btn-nuevo {
+        background-color: var(--color-green-light, #A0DE59);
+        color: #1a3800;
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s ease;
+    }
+
+        .btn-nuevo:hover {
+            background-color: var(--color-yellow, #F5C024);
+            color: #1a3800;
+            transform: translateY(-2px);
+        }
+
+    .btn-action-edit {
+        color: var(--color-green-dark, #466B5A);
+        background: none;
+        border: none;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+        .btn-action-edit:hover {
+            color: var(--color-purple-light, #A976C3);
+        }
+
+    .btn-action-delete {
+        color: #dc3545;
+        background: none;
+        border: none;
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+
+        .btn-action-delete:hover {
+            color: #a71d2a;
+        }
+
+    .modal-header-custom {
+        background-color: var(--color-purple-dark, #5F2A62);
+        color: white;
+    }
+
+        .modal-header-custom .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+</style>
+
+<div class="container mt-4 mb-5">
+    <div class="existencia-card">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0" style="color: var(--color-purple-dark); font-weight: 700;">Control de Existencias</h2>
+            <button type="button" class="btn btn-nuevo px-4 py-2" data-bs-toggle="modal" data-bs-target="#modalCrear">
+                + Registrar Inventario
+            </button>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-custom-header">
+                    <tr>
+                        <th class="py-3 px-3 rounded-start">Sucursal</th>
+                        <th class="py-3 px-3">Producto</th>
+                        <th class="py-3 px-3 text-center">Stock Actual</th>
+                        <th class="py-3 px-3 text-center">Mínimo</th>
+                        <th class="py-3 px-3 text-center">Máximo</th>
+                        <th class="py-3 px-3 text-end rounded-end">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td class="px-3 fw-bold">@item.IdSucursalNavigation?.NombreSucursal</td>
+                                <td class="px-3 fw-bold text-dark">@item.IdProductoNavigation?.Nombre</td>
+                                <td class="px-3 text-center fs-5 @(item.Existencias <= item.Minimo ? "text-danger fw-bold" : "text-success")">
+                                    @item.Existencias
+                                </td>
+                                <td class="px-3 text-center text-muted">@item.Minimo</td>
+                                <td class="px-3 text-center text-muted">@item.Maximo</td>
+                                <td class="px-3 text-end">
+                                    <button type="button" class="btn-action-edit me-3" data-bs-toggle="modal" data-bs-target="#modalEditar"
+                                            data-bs-idsucursal="@item.IdSucursal" data-bs-idproducto="@item.IdProducto"
+                                            data-bs-nombresucursal="@item.IdSucursalNavigation?.NombreSucursal"
+                                            data-bs-nombreproducto="@item.IdProductoNavigation?.Nombre"
+                                            data-bs-existencias="@item.Existencias" data-bs-minimo="@item.Minimo" data-bs-maximo="@item.Maximo">
+                                        ✏️ Editar
+                                    </button>
+                                    <button type="button" class="btn-action-delete" onclick="confirmarEliminacion(@item.IdSucursal, @item.IdProducto, '@item.IdProductoNavigation?.Nombre')">
+                                        🗑️ Eliminar
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="6" class="text-center py-4 text-muted">No hay registros de inventario en bodega.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<form id="form-eliminar" asp-action="Delete" method="post" style="display: none;">
+    <input type="hidden" name="idSucursal" id="delete-idsucursal" />
+    <input type="hidden" name="idProducto" id="delete-idproducto" />
+</form>
+
+<!-- Modal CREAR -->
+<div class="modal fade" id="modalCrear" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content border-0">
+            <div class="modal-header modal-header-custom">
+                <h5 class="modal-title fw-bold">Asignar Inventario a Sucursal</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="Create" method="post">
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Sucursal *</label>
+                            <select name="IdSucursal" class="form-select" asp-items="ViewBag.IdSucursal" required>
+                                <option value="">-- Seleccione una Sucursal --</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-bold">Producto *</label>
+                            <select name="IdProducto" class="form-select" asp-items="ViewBag.IdProducto" required>
+                                <option value="">-- Seleccione un Producto --</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-bold">Existencias Iniciales</label>
+                            <input type="number" name="Existencias" class="form-control" required min="0" value="0" />
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-bold">Stock Mínimo</label>
+                            <input type="number" name="Minimo" class="form-control" required min="0" value="5" />
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-bold">Stock Máximo</label>
+                            <input type="number" name="Maximo" class="form-control" required min="1" value="100" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-nuevo px-4">Guardar Inventario</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal EDITAR -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content border-0">
+            <div class="modal-header modal-header-custom" style="background-color: var(--color-green-dark);">
+                <h5 class="modal-title fw-bold">Ajustar Inventario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-action="Edit" method="post">
+                <div class="modal-body">
+                    <!-- Llaves primarias ocultas -->
+                    <input type="hidden" name="IdSucursal" id="edit-idsucursal" />
+                    <input type="hidden" name="IdProducto" id="edit-idproducto" />
+
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label class="text-muted small">Sucursal</label>
+                            <div id="edit-display-sucursal" class="fw-bold fs-5" style="color: var(--color-purple-dark);"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="text-muted small">Producto</label>
+                            <div id="edit-display-producto" class="fw-bold fs-5 text-dark"></div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-bold">Stock Actual</label>
+                            <input type="number" name="Existencias" id="edit-existencias" class="form-control fs-5 fw-bold text-center" required min="0" />
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-bold">Stock Mínimo</label>
+                            <input type="number" name="Minimo" id="edit-minimo" class="form-control text-center" required min="0" />
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label fw-bold">Stock Máximo</label>
+                            <input type="number" name="Maximo" id="edit-maximo" class="form-control text-center" required min="1" />
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer bg-light border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: var(--color-purple-light); border:none;">Actualizar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        @if (TempData["MensajeExito"] != null)
+        {
+                <text>
+                Swal.fire({
+                    title: '@TempData["MensajeExito"]',
+                    icon: 'success',
+                    timer: 2500,
+                    timerProgressBar: true,
+                    showConfirmButton: false,
+                    width: 500,
+                    padding: "2em",
+                    color: "#716add",
+                    customClass: { popup: 'mi-alerta', container: 'mi-backdrop' },
+                    backdrop: true
+                });
+                </text>
+        }
+        @if (TempData["MensajeError"] != null)
+        {
+                <text>
+                Swal.fire({
+                    title: 'No se pudo guardar',
+                    text: '@TempData["MensajeError"]',
+                    icon: 'error',
+                    confirmButtonColor: "#dc3545",
+                    width: 500,
+                    padding: "2em",
+                    customClass: { popup: 'mi-alerta', container: 'mi-backdrop' },
+                    backdrop: true
+                });
+                </text>
+        }
+
+        var modalEditar = document.getElementById('modalEditar');
+        modalEditar.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+
+            modalEditar.querySelector('#edit-idsucursal').value = button.getAttribute('data-bs-idsucursal');
+            modalEditar.querySelector('#edit-idproducto').value = button.getAttribute('data-bs-idproducto');
+
+            modalEditar.querySelector('#edit-display-sucursal').textContent = button.getAttribute('data-bs-nombresucursal');
+            modalEditar.querySelector('#edit-display-producto').textContent = button.getAttribute('data-bs-nombreproducto');
+
+            modalEditar.querySelector('#edit-existencias').value = button.getAttribute('data-bs-existencias');
+            modalEditar.querySelector('#edit-minimo').value = button.getAttribute('data-bs-minimo');
+            modalEditar.querySelector('#edit-maximo').value = button.getAttribute('data-bs-maximo');
+        });
+
+        function confirmarEliminacion(idSucursal, idProducto, nombreProducto) {
+            Swal.fire({
+                title: `¿Eliminar inventario de ${nombreProducto}?`,
+                text: "El registro desaparecerá de esta sucursal.",
+                icon: "warning",
+                width: 500,
+                padding: "2em",
+                color: "#716add",
+                showCancelButton: true,
+                confirmButtonColor: "#dc3545",
+                cancelButtonColor: "#A976C3",
+                confirmButtonText: "Sí, eliminar",
+                cancelButtonText: "Cancelar",
+                customClass: { popup: 'mi-alerta', container: 'mi-backdrop' },
+                backdrop: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('delete-idsucursal').value = idSucursal;
+                    document.getElementById('delete-idproducto').value = idProducto;
+                    document.getElementById('form-eliminar').submit();
+                }
+            });
+        }
+    </script>
+}

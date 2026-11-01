@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Política de Privacidad";
+}
+
+<style>
+    .privacy-container {
+        margin-top: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .privacy-card {
+        background-color: #ffffff;
+        border: 1px solid #eaeaea;
+        border-radius: 12px;
+        padding: 2.5rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .privacy-title {
+        color: var(--color-purple-dark, #5F2A62);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid var(--color-purple-light, #A976C3);
+        padding-bottom: 0.75rem;
+    }
+
+    .privacy-subtitle {
+        color: var(--color-green-dark, #466B5A);
+        font-weight: 600;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .privacy-text {
+        color: #444444;
+        line-height: 1.6;
+    }
+
+    .privacy-badge {
+        background-color: var(--color-green-light, #A0DE59);
+        color: #1a3800;
+        font-weight: 600;
+        padding: 0.35rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+
+    .highlight-box {
+        background-color: #fcfcfc;
+        border-left: 4px solid var(--color-yellow, #F5C024);
+        padding: 1rem 1.25rem;
+        border-radius: 0 8px 8px 0;
+        margin: 1.5rem 0;
+    }
+</style>
+
+<div class="container privacy-container">
+    <div class="privacy-card">
+        <span class="privacy-badge">POS_OCCODE System</span>
+        <h1 class="privacy-title">@ViewData["Title"]</h1>
+
+        <p class="privacy-text">
+            En <strong>POS_OCCODE</strong> nos tomamos con máxima seriedad la seguridad y la confidencialidad de la información gestionada dentro de nuestro sistema de punto de venta.
+        </p>
+
+        <div class="highlight-box">
+            <p class="privacy-text m-0">
+                <strong>Nota de Confidencialidad:</strong> Los datos registrados en este sistema son procesados exclusivamente para fines administrativos, operativos y de control de inventarios de la empresa.
+            </p>
+        </div>
+
+        <h3 class="privacy-subtitle">1. Uso de la Información</h3>
+        <p class="privacy-text">
+            Toda la información capturada relativa a ventas, catálogo de productos, clientes y transacciones comerciales se almacena de manera estructurada en la base de datos local y es accesible únicamente por personal autorizado mediante credenciales con roles asignados.
+        </p>
+
+        <h3 class="privacy-subtitle">2. Protección y Seguridad de Datos</h3>
+        <p class="privacy-text">
+            Implementamos controles de acceso a nivel de base de datos y cifrado en los procesos sensibles para prevenir la alteración, pérdida o consulta no autorizada de los registros financieros y comerciales.
+        </p>
+
+        <h3 class="privacy-subtitle">3. Modificaciones a esta Política</h3>
+        <p class="privacy-text">
+            Nos reservamos el derecho de actualizar esta política para adaptarla a nuevos requerimientos técnicos o de negocio del sistema.
+        </p>
+    </div>
+</div>
