@@ -1,0 +1,88 @@
+﻿@model POS_OCCODE.Models.FacturasVentasEncabezado
+
+@{
+    ViewData["Title"] = "Detalle Factura";
+}
+
+<style>
+    .detalle-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        padding: 2rem;
+        border: 1px solid #eaeaea;
+        margin-bottom: 2rem;
+    }
+
+    .section-title {
+        color: var(--color-purple-dark, #5F2A62);
+        font-weight: 700;
+        border-bottom: 2px solid var(--color-purple-light, #A976C3);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+</style>
+
+<div class="container mt-4">
+    <div class="detalle-card">
+        <h4 class="section-title mb-4">Factura Interna #@Model.IdFactura</h4>
+
+        <div class="row mb-4 bg-light p-3 rounded border">
+            <div class="col-md-4">
+                <p class="text-muted mb-1 small fw-bold">Fecha de Emisión</p>
+                <p class="fs-5 text-dark fw-bold">@Model.Fecha.ToString("dd/MM/yyyy")</p>
+            </div>
+            <div class="col-md-4">
+                <p class="text-muted mb-1 small fw-bold">Cliente</p>
+                <p class="fs-5 text-dark">@Model.IdClienteNavigation.Nombre</p>
+            </div>
+            <div class="col-md-4">
+                <p class="text-muted mb-1 small fw-bold">Documento FEL</p>
+                <p class="fs-5 text-dark">
+                    @(string.IsNullOrEmpty(Model.SerieFel) ? "Sin Documento DTE" : $"{Model.SerieFel} - {Model.NumeroFel}")
+                </p>
+            </div>
+        </div>
+
+        <h5 class="fw-bold mb-3" style="color: var(--color-green-dark, #466B5A);">Detalle de Artículos</h5>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead style="background-color: var(--color-purple-light, #A976C3); color: white;">
+                    <tr>
+                        <th>Producto</th>
+                        <th>Despachado de</th>
+                        <th class="text-center">Cant.</th>
+                        <th class="text-end">Precio U.</th>
+                        <th class="text-end">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var detalle in Model.FacturasVentasDetalles)
+                    {
+                        <tr>
+                            <td class="fw-bold">@detalle.IdProductoNavigation.Nombre</td>
+                            <td>@detalle.IdSucursalNavigation.NombreSucursal</td>
+                            <td class="text-center">@detalle.Cantidad</td>
+                            <td class="text-end">@detalle.Precio.ToString("C")</td>
+                            <td class="text-end fw-bold text-dark">
+                                @((detalle.Cantidad * detalle.Precio).ToString("C"))
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot class="bg-light">
+                    <tr>
+                        <td colspan="4" class="text-end fw-bold fs-4">Total:</td>
+                        <td class="text-end fw-bold fs-4" style="color: var(--color-purple-dark);">
+                            @Model.FacturasVentasDetalles.Sum(d => d.Cantidad * d.Precio).ToString("C")
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <div class="text-end mt-4">
+            <a asp-action="Index" class="btn btn-secondary">Volver</a>
+        </div>
+    </div>
+</div>

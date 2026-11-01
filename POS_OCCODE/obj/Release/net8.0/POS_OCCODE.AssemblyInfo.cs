@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("POS_OCCODE")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02884eadb75e1f850dd4c3723ef275d590150b1c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8c1eb52e27b529735b77a122cea5e0d0c0dd6e28")]
 [assembly: System.Reflection.AssemblyProductAttribute("POS_OCCODE")]
 [assembly: System.Reflection.AssemblyTitleAttribute("POS_OCCODE")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,210 @@
+﻿@model POS_OCCODE.Models.FacturasComprasEncabezado
+
+@{
+    ViewData["Title"] = "Registrar Nueva Compra";
+}
+
+<style>
+    .transaccion-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        padding: 2rem;
+        border: 1px solid #eaeaea;
+        margin-bottom: 2rem;
+    }
+
+    .section-title {
+        color: var(--color-purple-dark, #5F2A62);
+        font-weight: 700;
+        border-bottom: 2px solid var(--color-purple-light, #A976C3);
+        padding-bottom: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-agregar {
+        background-color: var(--color-purple-light, #A976C3);
+        color: white;
+        font-weight: 600;
+    }
+
+        .btn-agregar:hover {
+            background-color: var(--color-purple-dark, #5F2A62);
+            color: white;
+        }
+</style>
+
+<div class="container mt-4">
+    <form asp-action="Create" id="form-compra">
+
+        <!-- ENCABEZADO -->
+        <div class="transaccion-card">
+            <h4 class="section-title">Datos de la Compra</h4>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label fw-bold">Proveedor *</label>
+                    <select asp-for="IdProveedor" class="form-select" asp-items="ViewBag.IdProveedor" required>
+                        <option value="">-- Seleccione Proveedor --</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label fw-bold">Fecha *</label>
+                    <input asp-for="Fecha" type="date" class="form-control" required value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                </div>
+                <div class="col-md-2 mb-3">
+                    <label class="form-label fw-bold">Serie FEL</label>
+                    <input asp-for="SerieFel" class="form-control" placeholder="Ej. A1" />
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label class="form-label fw-bold">Número FEL</label>
+                    <input asp-for="NumeroFel" class="form-control" placeholder="Opcional" />
+                </div>
+            </div>
+        </div>
+
+        <!-- DETALLE DE COMPRA -->
+        <div class="transaccion-card">
+            <h4 class="section-title">Artículos Comprados</h4>
+
+            <div class="row align-items-end mb-4 bg-light p-3 rounded">
+                <div class="col-md-4">
+                    <label class="form-label fw-bold text-muted">Producto</label>
+                    <select id="selProducto" class="form-select" asp-items="ViewBag.IdProducto">
+                        <option value="">Seleccione...</option>
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label class="form-label fw-bold text-muted">Ingresar a Sucursal</label>
+                    <select id="selSucursal" class="form-select" asp-items="ViewBag.IdSucursal">
+                        <option value="">Seleccione...</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label fw-bold text-muted">Cantidad</label>
+                    <input type="number" id="txtCantidad" class="form-control" min="1" value="1" />
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label fw-bold text-muted">Costo Unitario (Q)</label>
+                    <input type="number" id="txtPrecio" class="form-control" step="0.01" min="0" value="0.00" />
+                </div>
+                <div class="col-md-1">
+                    <button type="button" id="btnAgregarDetalle" class="btn btn-agregar w-100">+</button>
+                </div>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover" id="tablaDetalles">
+                    <thead style="background-color: var(--color-green-dark, #466B5A); color: white;">
+                        <tr>
+                            <th>Producto</th>
+                            <th>Destino (Bodega)</th>
+                            <th class="text-center">Cant.</th>
+                            <th class="text-end">Costo U.</th>
+                            <th class="text-end">Subtotal</th>
+                            <th class="text-center">X</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="text-end fw-bold">TOTAL COMPRA:</td>
+                            <td class="text-end fw-bold text-dark fs-5" id="lblTotalCompra">Q 0.00</td>
+                            <td></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+            <div id="divDetallesOcultos"></div>
+
+            <div class="text-end mt-4">
+                <a asp-action="Index" class="btn btn-secondary me-2">Cancelar</a>
+                <button type="submit" class="btn" style="background-color: var(--color-green-light, #A0DE59); color: #1a3800; font-weight: bold;">
+                    Registrar Compra
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        let indexDetalle = 0;
+        let totalGeneral = 0;
+
+        @if (TempData["MensajeError"] != null)
+        {
+                <text>
+                Swal.fire({ title: 'Error', text: '@TempData["MensajeError"]', icon: 'error', width: 500, padding: "2em", customClass: { popup: 'mi-alerta', container: 'mi-backdrop' }, backdrop: true });
+                </text>
+        }
+
+        document.getElementById('btnAgregarDetalle').addEventListener('click', function () {
+            const idProducto = document.getElementById('selProducto').value;
+            const textProducto = document.getElementById('selProducto').options[document.getElementById('selProducto').selectedIndex].text;
+            const idSucursal = document.getElementById('selSucursal').value;
+            const textSucursal = document.getElementById('selSucursal').options[document.getElementById('selSucursal').selectedIndex].text;
+            const cantidad = document.getElementById('txtCantidad').value;
+            const precio = document.getElementById('txtPrecio').value;
+
+            if (!idProducto || !idSucursal || cantidad <= 0 || precio < 0) {
+                Swal.fire('Atención', 'Complete producto, sucursal, cantidad y costo.', 'warning');
+                return;
+            }
+
+            const subtotal = parseFloat(cantidad) * parseFloat(precio);
+            totalGeneral += subtotal;
+
+            const tbody = document.querySelector('#tablaDetalles tbody');
+            const tr = document.createElement('tr');
+            tr.id = `fila-${indexDetalle}`;
+            tr.innerHTML = `
+                <td>${textProducto}</td>
+                <td>${textSucursal}</td>
+                <td class="text-center">${cantidad}</td>
+                <td class="text-end">Q ${parseFloat(precio).toFixed(2)}</td>
+                <td class="text-end fw-bold subtotal-fila" data-val="${subtotal}">Q ${subtotal.toFixed(2)}</td>
+                <td class="text-center">
+                    <button type="button" class="btn btn-sm btn-danger" onclick="eliminarDetalle(${indexDetalle})">X</button>
+                </td>
+            `;
+            tbody.appendChild(tr);
+
+            const divOculto = document.getElementById('divDetallesOcultos');
+            divOculto.insertAdjacentHTML('beforeend', `
+                <div id="hidden-${indexDetalle}">
+                    <input type="hidden" name="FacturasComprasDetalles[${indexDetalle}].IdProducto" value="${idProducto}" />
+                    <input type="hidden" name="FacturasComprasDetalles[${indexDetalle}].IdSucursal" value="${idSucursal}" />
+                    <input type="hidden" name="FacturasComprasDetalles[${indexDetalle}].Cantidad" value="${cantidad}" />
+                    <input type="hidden" name="FacturasComprasDetalles[${indexDetalle}].Precio" value="${precio.replace('.', ',')}" />
+                </div>
+            `);
+
+            actualizarTotal();
+            indexDetalle++;
+
+            document.getElementById('selProducto').value = '';
+            document.getElementById('txtCantidad').value = '1';
+        });
+
+        function eliminarDetalle(index) {
+            const subtotalFila = parseFloat(document.querySelector(`#fila-${index} .subtotal-fila`).getAttribute('data-val'));
+            totalGeneral -= subtotalFila;
+            document.getElementById(`fila-${index}`).remove();
+            document.getElementById(`hidden-${index}`).remove();
+            actualizarTotal();
+        }
+
+        function actualizarTotal() {
+            document.getElementById('lblTotalCompra').textContent = `Q ${totalGeneral.toFixed(2)}`;
+        }
+
+        document.getElementById('form-compra').addEventListener('submit', function (e) {
+            if (document.querySelectorAll('#tablaDetalles tbody tr').length === 0) {
+                e.preventDefault();
+                Swal.fire('Atención', 'Debe agregar productos a la compra.', 'warning');
+            }
+        });
+    </script>
+}

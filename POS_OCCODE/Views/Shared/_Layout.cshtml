@@ -11,7 +11,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="/android-chrome-512x512.png">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#5F2A62"> <!-- Cambiado para que el navegador móvil se vea morado -->
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -27,77 +27,136 @@
         }
 
         body {
-            background-color: #ffffff;
+            background-color: #f8f9fa;
             color: #333333;
         }
 
+        /* Navbar principal con fondo Morado y texto Verde Claro */
         .custom-navbar {
-            background-color: #ffffff;
-            border-bottom: 3px solid var(--color-purple-light);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            background-color: var(--color-purple-dark) !important;
+            border-bottom: 3px solid var(--color-green-light);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
         }
 
         .navbar-brand {
-            color: var(--color-purple-dark) !important;
-            font-weight: 700;
+            color: var(--color-green-light) !important;
+            font-weight: 800;
             letter-spacing: 0.5px;
             display: flex;
             align-items: center;
         }
 
-        .nav-link, .dropdown-item {
-            color: var(--color-green-dark) !important;
-            font-weight: 500;
-            transition: color 0.3s ease;
+        .navbar-toggler {
+            border: 2px solid var(--color-green-light);
+            color: var(--color-green-light);
+            padding: 0.4rem 0.8rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background-color: transparent;
+            font-weight: bold;
         }
 
-            .nav-link:hover, .dropdown-item:hover {
-                color: var(--color-purple-light) !important;
-                background-color: transparent;
+            .navbar-toggler:hover {
+                background-color: var(--color-green-light);
+                color: var(--color-purple-dark);
+                box-shadow: 0 0 10px rgba(160, 222, 89, 0.5);
             }
 
-        .navbar-toggler {
-            border-color: var(--color-purple-light);
+        /* Menú Offcanvas (Tree-list Burger Menu) */
+        .offcanvas-header {
+            background-color: var(--color-purple-dark);
+            border-bottom: 3px solid var(--color-green-light);
         }
 
-        .dropdown-menu {
-            border-color: var(--color-purple-light);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        .tree-list-menu {
+            padding: 0;
+            margin: 0;
+            list-style: none;
         }
 
+            .tree-list-menu .menu-item {
+                display: block;
+                padding: 0.75rem 1rem;
+                color: var(--color-purple-dark);
+                font-weight: 700;
+                text-decoration: none;
+                border-radius: 8px;
+                margin-bottom: 0.25rem;
+                transition: all 0.2s ease;
+                border-left: 4px solid transparent;
+            }
+
+                .tree-list-menu .menu-item:hover,
+                .tree-list-menu .menu-item[aria-expanded="true"] {
+                    background-color: rgba(160, 222, 89, 0.15); /* Fondo verde super clarito */
+                    color: var(--color-green-dark);
+                    border-left: 4px solid var(--color-green-light);
+                }
+
+        /* Submenús */
+        .tree-submenu {
+            list-style: none;
+            padding-left: 1.5rem;
+            margin-top: 0.25rem;
+            margin-bottom: 0.5rem;
+            border-left: 2px solid var(--color-purple-light);
+            margin-left: 1rem;
+        }
+
+            .tree-submenu .submenu-item {
+                display: block;
+                padding: 0.5rem 1rem;
+                color: #555;
+                text-decoration: none;
+                font-size: 0.95rem;
+                font-weight: 600;
+                border-radius: 6px;
+                transition: all 0.2s;
+            }
+
+                .tree-submenu .submenu-item:hover {
+                    background-color: var(--color-purple-dark);
+                    color: var(--color-green-light);
+                    transform: translateX(5px);
+                }
+
+        .menu-icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Footer */
         .custom-footer {
             background-color: #ffffff;
             border-top: 1px solid #eaeaea;
             color: var(--color-green-dark);
         }
 
-        .custom-footer a {
-            color: var(--color-purple-dark);
-            text-decoration: none;
-        }
+            .custom-footer a {
+                color: var(--color-purple-dark);
+                text-decoration: none;
+                font-weight: bold;
+            }
 
-        .custom-footer a:hover {
-            color: var(--color-yellow);
-        }
+                .custom-footer a:hover {
+                    color: var(--color-green-light);
+                }
 
-        /* Imagen principal de SweetAlert */
+        /* SweetAlert Custom Styles */
         .mi-alerta {
             background: #403b49 url('/sweetalertFondo.png') center center / cover no-repeat !important;
             border-radius: 12px;
         }
 
-            /* Textos y botones */
             .mi-alerta .swal2-title {
                 color: #a0de59 !important;
             }
 
-        /* Fondo oscuro */
         .mi-backdrop {
             background: rgba(0, 0, 123, 0.4) !important;
             position: fixed;
         }
 
-            /* GIF pequeño en la parte inferior */
             .mi-backdrop::after {
                 content: "";
                 position: absolute;
@@ -116,39 +175,98 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm custom-navbar mb-3">
+        <nav class="navbar custom-navbar mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="/logo_occode.jpg" alt="Logo POS" width="50" height="50" class="d-inline-block align-text-top me-2 rounded-circle mx-3 shadow">
+                    <!-- Agregué un borde verde a la imagen del logo para que combine -->
+                    <img src="/logo_occode.jpg" alt="Logo POS" width="50" height="50" class="d-inline-block align-text-top me-2 rounded-circle mx-3 shadow" style="border: 2px solid var(--color-green-light);">
                     PUNTO DE VENTA - OCCODEV
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+
+                <!-- Botón Hamburguesa -->
+                <button class="navbar-toggler shadow-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu">
+                    <span class="fs-5">☰ Menú</span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Gestión
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Productos" asp-action="Index">Productos</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Clientes" asp-action="Index">Clientes</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" asp-area="" asp-controller="Ventas" asp-action="Index">Ventas</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
-                        </li>
-                    </ul>
-                </div>
             </div>
         </nav>
     </header>
+
+    <!-- Menú Lateral (Offcanvas Tree-list) -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title fw-bold" id="offcanvasMenuLabel" style="color: var(--color-green-light);">
+                Navegación POS
+            </h5>
+            <!-- btn-close-white para que la X se vea sobre el fondo morado -->
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="tree-list-menu">
+
+                <li>
+                    <a asp-controller="Home" asp-action="Index" class="menu-item">
+                        <span class="menu-icon">🏠</span> Inicio
+                    </a>
+                </li>
+
+                <!-- Rama: Transacciones -->
+                <li>
+                    <a href="#menuTransacciones" class="menu-item d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                        <span><span class="menu-icon">💳</span> Operaciones</span>
+                        <span>▼</span>
+                    </a>
+                    <div class="collapse" id="menuTransacciones">
+                        <ul class="tree-submenu">
+                            <li><a asp-controller="Ventas" asp-action="Index" class="submenu-item">Ventas y Facturación</a></li>
+                            <li><a asp-controller="Compras" asp-action="Index" class="submenu-item">Compras a Proveedores</a></li>
+                            <li><a asp-controller="DevolucionesVentas" asp-action="Index" class="submenu-item">NC - Devol. Clientes</a></li>
+                            <li><a asp-controller="ComprasDevoluciones" asp-action="Index" class="submenu-item">ND - Devol. Proveedores</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Rama: Inventario -->
+                <li>
+                    <a href="#menuInventario" class="menu-item d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                        <span><span class="menu-icon">📦</span> Inventario</span>
+                        <span>▼</span>
+                    </a>
+                    <div class="collapse" id="menuInventario">
+                        <ul class="tree-submenu">
+                            <li><a asp-controller="Productos" asp-action="Index" class="submenu-item">Catálogo de Productos</a></li>
+                            <li><a asp-controller="Existencias" asp-action="Index" class="submenu-item">Control de Bodegas</a></li>
+                            <li><a asp-controller="EntradasSalidas" asp-action="Index" class="submenu-item">Entradas y Salidas</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <!-- Rama: Directorios -->
+                <li>
+                    <a href="#menuDirectorio" class="menu-item d-flex justify-content-between align-items-center" data-bs-toggle="collapse" role="button" aria-expanded="false">
+                        <span><span class="menu-icon">📁</span> Catálogos</span>
+                        <span>▼</span>
+                    </a>
+                    <div class="collapse" id="menuDirectorio">
+                        <ul class="tree-submenu">
+                            <li><a asp-controller="Clientes" asp-action="Index" class="submenu-item">Directorio de Clientes</a></li>
+                            <li><a asp-controller="Proveedores" asp-action="Index" class="submenu-item">Proveedores</a></li>
+                            <li><a asp-controller="Sucursales" asp-action="Index" class="submenu-item">Sucursales</a></li>
+                            <li><a asp-controller="Vendedores" asp-action="Index" class="submenu-item">Vendedores</a></li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li><hr class="dropdown-divider my-3"></li>
+
+                <li>
+                    <a asp-controller="Home" asp-action="Privacy" class="menu-item text-muted">
+                        <span class="menu-icon">🔒</span> Privacidad y Seguridad
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
 
     <div class="container">
         <main role="main" class="pb-3">
@@ -161,7 +279,8 @@
             &copy; 2026 - POS_OCCODE - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacidad</a>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- sweet alert -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
